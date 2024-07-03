@@ -1,6 +1,6 @@
 ﻿namespace DataBase.Models
 {
-    public class Student : BaseEntitiy
+    public class Student : BaseEntitiy //BaseEntity sınıfından miras alır
     {
         public string Ad { get; set; }
         public string Soyad { get; set; }
