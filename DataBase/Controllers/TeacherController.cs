@@ -1,21 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using DataBase.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using DataBase.Models;
 
-namespace CarsDemoApi.Controllers
+namespace DataBase.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CarsController : ControllerBase
+    public class TeacherController : ControllerBase
     {
-        private readonly CarDbContext _context;
+        private readonly MyDbContext _context;
 
-        public CarsController(CarDbContext context)
+        public TeacherController(MyDbContext context)
         {
             _context = context;
             _context.Database.EnsureCreated();
@@ -23,36 +18,36 @@ namespace CarsDemoApi.Controllers
 
         // GET: api/Cars
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Car>>> GetCars()
+        public async Task<ActionResult<IEnumerable<Teacher>>> Getteacher()
         {
-            return await _context.Cars.ToListAsync();
+            return await _context.Teachers.ToListAsync();
         }
 
         // GET: api/Cars/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Car>> GetCar(int id)
+        public async Task<ActionResult<Teacher>> Getteacher(int id)
         {
-            var car = await _context.Cars.FindAsync(id);
+            var teacher = await _context.Teachers.FindAsync(id);
 
-            if (car == null)
+            if (teacher == null)
             {
                 return NotFound();
             }
 
-            return car;
+            return teacher;
         }
 
         // PUT: api/Cars/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCar(int id, Car car)
+        public async Task<IActionResult> Putteacher(int id, Teacher teacher)
         {
-            if (id != car.Id)
+            if (id != teacher.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(car).State = EntityState.Modified;
+            _context.Entry(teacher).State = EntityState.Modified;
 
             try
             {
@@ -76,25 +71,25 @@ namespace CarsDemoApi.Controllers
         // POST: api/Cars
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Car>> PostCar(Car car)
+        public async Task<ActionResult<Teacher>> Postteacher(Teacher teacher)
         {
-            _context.Cars.Add(car);
+            _context.Teachers.Add(teacher);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCar", new { id = car.Id }, car);
+            return CreatedAtAction("GetCar", new { id = teacher.Id }, teacher);
         }
 
         // DELETE: api/Cars/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCar(int id)
+        public async Task<IActionResult> Deleteteacher(int id)
         {
-            var car = await _context.Cars.FindAsync(id);
-            if (car == null)
+            var teacher = await _context.Teachers.FindAsync(id);
+            if (teacher == null)
             {
                 return NotFound();
             }
 
-            _context.Cars.Remove(car);
+            _context.Teachers.Remove(teacher);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -102,7 +97,7 @@ namespace CarsDemoApi.Controllers
 
         private bool CarExists(int id)
         {
-            return _context.Cars.Any(e => e.Id == id);
+            return _context.Students.Any(e => e.Id == id);
         }
     }
 }

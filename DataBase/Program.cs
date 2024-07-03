@@ -6,9 +6,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-builder.Services.AddDbContext<CarDbContext>(opt =>
+builder.Services.AddDbContext<MyDbContext>(opt =>
 {
-    opt.UseInMemoryDatabase("CarDb");
+    opt.UseInMemoryDatabase("StudentDb");
 });
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
