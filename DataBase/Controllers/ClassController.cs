@@ -6,11 +6,11 @@ namespace DataBase.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TeacherController : ControllerBase
+    public class ClassController : ControllerBase
     {
         private readonly MyDbContext _context;
 
-        public TeacherController(MyDbContext context)
+        public ClassController(MyDbContext context)
         {
             _context = context;
             _context.Database.EnsureCreated();
@@ -18,36 +18,36 @@ namespace DataBase.Controllers
 
         // GET: api/Cars
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Teacher>>> Getteacher()
+        public async Task<ActionResult<IEnumerable<Class>>> Getstudent()
         {
-            return await _context.Teachers.ToListAsync();
+            return await _context.Clases.ToListAsync();
         }
 
         // GET: api/Cars/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Teacher>> Getteacher(int id)
+        public async Task<ActionResult<Class>> Getstudent(int id)
         {
-            var teacher = await _context.Teachers.FindAsync(id);
+            var sinifs = await _context.Clases.FindAsync(id);
 
-            if (teacher == null)
+            if (sinifs == null)
             {
                 return NotFound();
             }
 
-            return teacher;
+            return sinifs;
         }
 
         // PUT: api/Cars/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> Putteacher(int id, Teacher teacher)
+        public async Task<IActionResult> Putstudent(int id, Class sinif)
         {
-            if (id != teacher.Id)
+            if (id != sinif.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(teacher).State = EntityState.Modified;
+            _context.Entry(sinif).State = EntityState.Modified;
 
             try
             {
@@ -71,25 +71,25 @@ namespace DataBase.Controllers
         // POST: api/Cars
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Teacher>> Postteacher(Teacher teacher)
+        public async Task<ActionResult<Class>> Poststudent(Class sinifm)
         {
-            _context.Teachers.Add(teacher);
+            _context.Clases.Add(sinifm);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCar", new { id = teacher.Id }, teacher);
+            return CreatedAtAction("Sınıflar", new { id = sinifm.Id }, sinifm);
         }
 
         // DELETE: api/Cars/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Deleteteacher(int id)
+        public async Task<IActionResult> Deletestudent(int id)
         {
-            var teacher = await _context.Teachers.FindAsync(id);
-            if (teacher == null)
+            var sinif = await _context.Clases.FindAsync(id);
+            if (sinif == null)
             {
                 return NotFound();
             }
 
-            _context.Teachers.Remove(teacher);
+            _context.Clases.Remove(sinif);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -97,7 +97,7 @@ namespace DataBase.Controllers
 
         private bool CarExists(int id)
         {
-            return _context.Students.Any(e => e.Id == id);
+            return _context.Clases.Any(e => e.Id == id);
         }
     }
 }
