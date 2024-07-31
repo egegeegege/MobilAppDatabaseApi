@@ -49,6 +49,9 @@ namespace DataBase.Models
             );
 
             modelBuilder.Entity<Teacher>().HasData(
+                /*
+                 * Altta gördüğümüz api Öğretmen apisidir api baya dolu ve biraz karmaşıktır 
+                 */
 
                 new Teacher { Id = 1, Ad = "Ömer", Soyad = "Yüksel", TelefonNo = "+90 5__ ___ __ __", UzmanlıkAlanıDersler = "Müdür", Cinsiyet = "Erkek", OturduguIlce = "Beyoğlu", Aktif = "Hayır", AddDate = DateTime.Now, Sifre = "ru7t8vp9mbtjy" },
                 new Teacher { Id = 2, Ad = "Meltem", Soyad = "Karadağ", TelefonNo = "+90 5__ ___ __ __", UzmanlıkAlanıDersler = "Müdür Yardımcısı", Cinsiyet = "Kadın", OturduguIlce = "Kadıköy", Aktif = "Evet", AddDate = DateTime.Now, Sifre = "bm-912*45" },
@@ -90,6 +93,8 @@ namespace DataBase.Models
             );
 
             modelBuilder.Entity<Class>().HasData(
+
+                //Burası sınıf apilerinin tutulduğu DataBase Context bölümüdür
 
                 new Class { Id =8,  SınıfAdı ="10/C", Mevcut=22 ,OgretmenID=24, Aktif = "Evet" },
                 new Class { Id =1,  SınıfAdı ="12/A", Mevcut=23 ,OgretmenID=17, Aktif = "Evet" },
