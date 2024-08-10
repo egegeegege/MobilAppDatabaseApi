@@ -28,7 +28,7 @@ namespace DataBase.Models
                 new Student { Id = 8, Ad = "Alperen", Soyad = "Karayol", TcNo = 19485632075, Sifre = 614289, Sınıf = "11-B", Aktif = "Evet" },
                 new Student { Id = 9, Ad = "Mehmetcan", Soyad = "Eker", TcNo = 56298317420, Sifre = 750213, Sınıf = "11-B", Aktif = "Evet" },
                 new Student { Id = 10, Ad = "Cihat Eren", Soyad = "Kiraz", TcNo = 48120759638, Sifre = 341890, Sınıf = "11-B", Aktif = "Evet" },
-                new Student { Id = 11, Ad = "Rabia", Soyad = "Erdoğan", TcNo = 72954018365, Sifre = 905432, Sınıf = "11-B", Aktif = "Evet" },
+                new Student { Id = 11, Ad = "Rabia", Soyad = "Erdogan", TcNo = 72954018365, Sifre = 905432, Sınıf = "11-B", Aktif = "Evet" },
                 new Student { Id = 12, Ad = "Emir", Soyad = "Orhan", TcNo = 31682574098, Sifre = 283746, Sınıf = "11-B", Aktif = "Evet" },
                 new Student { Id = 13, Ad = "Cemre", Soyad = "Akkaya", TcNo = 65047298130, Sifre = 697152, Sınıf = "11-B", Aktif = "Evet" },
                 new Student { Id = 14, Ad = "Alpcan", Soyad = "Ünlü", TcNo = 23758104962, Sifre = 874920, Sınıf = "11-B", Aktif = "Evet" },
